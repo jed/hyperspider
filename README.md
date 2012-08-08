@@ -10,7 +10,7 @@ Example
 
 Let's say you had a Twitter clone with a hypertext JSON API, including the following two sample endpoints:
 
-### GET /users/:id` (fetch a user)
+### `GET /users/:id` (fetch a user)
 
 ```json
 {
@@ -38,7 +38,7 @@ Let's say you had a Twitter clone with a hypertext JSON API, including the follo
 }
 ```
 
-To create a `following-users` resource with a fully populated list of users, use hyperspider like this:
+To create a `following-detailed` resource with a fully populated list of users, use hyperspider like this:
 
 ```javascript
 var hyperspider = require("hyperspider")
@@ -63,7 +63,7 @@ hyperspider(options, function(err, data) {
 })
 ```
 
-See the `/test` directory for a working example.
+See the [tests](https://github.com/jed/hyperspider/blob/master/test/server.js) for a working example.
 
 API
 ---
