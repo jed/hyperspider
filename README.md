@@ -1,6 +1,8 @@
 hyperspider
 ===========
 
+[![Build Status](https://secure.travis-ci.org/jed/hyperspider.png?branch=master)](http://travis-ci.org/jed/hyperspider)
+
 hyperspider is a declarative [HATEOAS](http://en.wikipedia.org/wiki/HATEOAS) API crawler for [node.js](http://nodejs.org). Give it a list of url patterns, and it will recursively crawl your hypertext HTTP API, streaming back every matching endpoint.
 
 hyperspider is great for folks that want to create clean, granular, and self-documenting hypertext APIs, but avoid the latency of remotely fetching hundreds of tiny HTTP resources.
