@@ -1,0 +1,9 @@
+{
+  "href": "/users/janl",
+  "name": "Jan Lenhardt",
+
+  "location":  { "href": "/germany/berlin" },
+  "updates":   { "href": "/users/janl/updates" },
+  "following": { "href": "/users/janl/following" },
+  "followers": { "href": "/users/janl/followers" }
+}

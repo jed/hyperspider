@@ -1,0 +1,9 @@
+{
+  "href": "/users/jedschmidt/following",
+  "items": [
+    { "href": "/users/janl" },
+    { "href": "/users/cramforce" },
+    { "href": "/users/hblank" },
+    { "href": "/users/theophani" }
+  ]
+}

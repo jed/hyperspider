@@ -1,0 +1,9 @@
+{
+  "href": "/users/cramforce",
+  "name": "Malte Ubl",
+
+  "location":  { "href": "/usa/sanfrancisco" },
+  "updates":   { "href": "/users/cramforce/updates" },
+  "following": { "href": "/users/cramforce/following" },
+  "followers": { "href": "/users/cramforce/followers" }
+}

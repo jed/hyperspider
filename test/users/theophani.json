@@ -1,0 +1,9 @@
+{
+  "href": "/users/theophani",
+  "name": "Tiffany Conroy",
+
+  "location":  { "href": "/germany/berlin" },
+  "updates":   { "href": "/users/theophani/updates" },
+  "following": { "href": "/users/theophani/following" },
+  "followers": { "href": "/users/theophani/followers" }
+}

@@ -1,0 +1,9 @@
+{
+  "href": "/users/hblank",
+  "name": "Holger Blank",
+
+  "location":  { "href": "/germany/hamburg" },
+  "updates":   { "href": "/users/hblank/updates" },
+  "following": { "href": "/users/hblank/following" },
+  "followers": { "href": "/users/hblank/followers" }
+}

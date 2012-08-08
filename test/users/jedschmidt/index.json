@@ -1,0 +1,9 @@
+{
+  "href": "/users/jedschmidt",
+  "name": "Jed Schmidt",
+
+  "location":  { "href": "/japan/tokyo" },
+  "updates":   { "href": "/users/jedschmidt/updates" },
+  "following": { "href": "/users/jedschmidt/following" },
+  "followers": { "href": "/users/jedschmidt/followers" }
+}

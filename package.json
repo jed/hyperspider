@@ -1,0 +1,15 @@
+{
+  "name": "hyperspider",
+  "version": "0.1.0",
+  "description": "A declarative HATEOAS API crawler for node.js",
+  "main": "hyperspider.js",
+  "scripts": {
+    "test": "node test/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jed/hyperspider.git"
+  },
+  "author": "Jed Schmidt (tr@nslator.jp)",
+  "license": "BSD"
+}
