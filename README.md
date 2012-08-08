@@ -65,6 +65,13 @@ hyperspider(options, function(err, data) {
 
 See the [tests](https://github.com/jed/hyperspider/blob/master/test/server.js) for a working example.
 
+Installation
+------------
+
+Use [npm](http://npmjs.org) to install hyperspider:
+
+`npm i hyperspider`
+
 API
 ---
 
