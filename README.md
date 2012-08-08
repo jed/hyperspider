@@ -40,7 +40,7 @@ Let's say you had a Twitter clone with a hypertext JSON API, including the follo
 }
 ```
 
-To create a `following-detailed` resource with a fully populated list of users, use hyperspider like this:
+To create a single `following-detailed` resource so that API consumers don't have to make a separate HTTP call for each resource, use hyperspider like this:
 
 ```javascript
 var hyperspider = require("hyperspider")
