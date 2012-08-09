@@ -2,7 +2,7 @@ var hyperspider = require("../")
 var http = require("http")
 var assert = require("assert")
 
-var server = http.createServer().listen(8000)
+var server = http.createServer()
 
 server.on("request", function(req, res) {
   var match = req.url.match(/\/users\/(\w+)\/following-detailed/)
@@ -10,7 +10,7 @@ server.on("request", function(req, res) {
 
   if (match) {
     var crawl = hyperspider({
-      port: 8000,
+      port: this.address().port,
       path: [
         "/users/" + match[1],
         "/users/" + match[1] + "/following",
@@ -50,9 +50,15 @@ server.on("request", function(req, res) {
   }
 })
 
-http.get(
-  "http://localhost:8000/users/jedschmidt/following-detailed",
-  function(res) {
+server.listen(function() {
+  var opts = {
+    port: this.address().port,
+    path: "/users/jedschmidt/following-detailed"
+  }
+
+  http.get(opts, onResponse)
+
+  function onResponse(res) {
     var body = ""
     res.on("data", function(chunk){ body += chunk })
     res.on("end", function() {
@@ -69,4 +75,4 @@ http.get(
       server.close()
     })
   }
-)
+})
