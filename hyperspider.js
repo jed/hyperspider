@@ -129,9 +129,9 @@ Hyperspider.prototype.run = function(cb) {
   var data = []
 
   this
-    .on("data", data.push.bind(data))
-    .on("error", errs.push.bind(errs))
-    .on("end", function(){ cb(errs[0] && errs, data) })
+    .on("data"  , function(obj){ data.push(obj) })
+    .on("error" , function(obj){ errs.push(obj) })
+    .on("end"   , function(   ){ cb(errs[0] && errs, data) })
 
   return this
 }
