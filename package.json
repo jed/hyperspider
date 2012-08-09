@@ -1,6 +1,6 @@
 {
   "name": "hyperspider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A declarative HATEOAS API crawler for node.js",
   "main": "hyperspider.js",
   "scripts": {
