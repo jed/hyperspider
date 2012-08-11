@@ -48,8 +48,8 @@ var hyperspider = require("hyperspider")
 var options = {
   host: "mytwitterclone.biz",
   path: [
-    "/users/jed",
-    "/users/jed/following",
+    "/users/jedschmidt",
+    "/users/jedschmidt/following",
     "/users/*"
   ]
 })
