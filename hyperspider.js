@@ -137,11 +137,11 @@ Hyperspider.prototype.run = function(cb) {
 }
 
 module.exports = function(opts, cb) {
-  var apider = new Hyperspider(opts)
+  var hyperspider = new Hyperspider(opts)
 
-  if (cb) apider.run(cb)
+  if (cb) hyperspider.run(cb)
 
-  return apider
+  return hyperspider
 }
 
 module.exports.prototype = Hyperspider.prototype
