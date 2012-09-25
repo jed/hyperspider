@@ -89,8 +89,8 @@ API
 
 Note that `path` must contain at least one normal url path to serve as the starting point for the crawl.
 
-`callback(err, data)`: Buffers the event stream into a single callback. `err` is null if no errors occurred, and otherwise an array of errors. data is an array of string entities, one for each successful HTTP call. Omit this to listen for a stream of events.
+`callback(err, data)`: Buffers the event stream into a single callback. `err` is null if no errors occurred, and otherwise the first error emitted, with subsequent errors available from the `next` property of the error. `data` is an array of responses, one for each successful HTTP call. Omit this to listen for a stream of events.
 
 ### req.extract (or hyperspider.prototype.extract)
 
-This method takes a single argument, an HTTP response body string. Override this before adding listeners to customize how hyperspider should extract urls from each resource. By default, the response body is parsed into JSON, extracting the value of every nested `href` property, but you could roll your own, such as parsing `Link` headers, etc.
+This method takes a single argument, an HTTP response. Override this before adding listeners to customize how hyperspider should extract urls from each resource. By default, the response body is parsed into JSON, extracting the value of every nested `href` property, but you could roll your own, such as parsing `Link` headers, etc.
