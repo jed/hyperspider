@@ -75,34 +75,31 @@ Hyperspider.prototype.crawl = function() {
     this.options.path = this.input[this.cursor++]
 
     http.get(this.options, function(path, res) {
-      var body = ""
+      res.body = ""
 
-      if (res.statusCode >= 400) {
-        body += http.STATUS_CODES[res.statusCode]
-        body += " (" + path + ")"
+      res.on("data", function(data){ res.body += data })
 
-        this.emit("error", new Error(body), res)
-        this.completed++
-        this.crawl()
-
-        return
-      }
-
-      res.on("data", function(data){ body += data })
       res.on("end", function() {
-        try {
-          this.emit("data", body, res)
+	if (res.statusCode >= 400) {
+	  var error = new Error(http.STATUS_CODES[res.statusCode])
+	  error.response = res
+	  this.emit("error", error)
+	}
 
+	else try {
           Array.prototype.push.apply(
             this.input,
-            this.extract(body)
+	    this.extract(res)
               .filter(this.verify, this)
               .filter(this.dedupe, this)
           )
+
+	  this.emit("data", res)
         }
 
         catch (error) {
-          this.emit("error", error, res)
+	  error.response = res
+	  this.emit("error", error)
         }
 
         this.completed++
@@ -114,10 +111,10 @@ Hyperspider.prototype.crawl = function() {
   return this
 }
 
-Hyperspider.prototype.extract = function(body, res) {
+Hyperspider.prototype.extract = function(res) {
   var paths = []
 
-  JSON.parse(body, function(key, value) {
+  JSON.parse(res.body, function(key, value) {
     if (key == "href") paths.push(value)
   })
 
@@ -131,7 +128,10 @@ Hyperspider.prototype.run = function(cb) {
   this
     .on("data"  , function(obj){ data.push(obj) })
     .on("error" , function(obj){ errs.push(obj) })
-    .on("end"   , function(   ){ cb(errs[0] && errs, data) })
+    .on("end"   , function() {
+      errs.forEach(function(err, i){ err.next = errs[i + 1] })
+      cb(errs[0], data)
+    })
 
   return this
 }

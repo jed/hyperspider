@@ -21,9 +21,9 @@ server.on("request", function(req, res) {
     res.writeHead(200)
     res.write("[")
 
-    crawl.on("data", function(body) {
+    crawl.on("data", function(response) {
       first ? first = false : res.write(",")
-      res.write(body)
+      res.write(response.body)
     })
 
     crawl.on("end", function() {
